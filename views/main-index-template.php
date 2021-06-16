@@ -20,7 +20,7 @@ include_once '../config_example.php'
     <main>
 
         <div>
-            <?php include_once 'views'.DIRECTORY_SEPARATOR.$this->page?>
+            <?php include_once 'pages'.DIRECTORY_SEPARATOR.$this->page?>
         </div>
     </main>
 <footer><span>"October studio" 2021 &copy;</span></footer>
