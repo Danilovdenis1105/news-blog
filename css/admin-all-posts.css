@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    border-spacing: 0px;
+    background-color: #fff;
+}
+
+caption {
+    padding-bottom: 15px;
+    font-size: 1.5em;
+}
+
+th, td, .bottonAdd a {
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+.bottonAdd a{
+    border: none;
+}
+.bottonAdd{
+    background-color: #59c2e6;
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+}
+.bottonAdd a{
+    width: 100%;
+    color: #000;
+    font-size: 20px;
+}
+td.delete{
+    padding: 0;
+}
+input[value="del"]{
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4f5f6f;
+    cursor: pointer;
+    color: #fff;
+}

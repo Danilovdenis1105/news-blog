@@ -1,0 +1,71 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    border-spacing: 0px;
+    background-color: #fff;
+}
+caption {
+    padding-bottom: 15px;
+    font-size: 1.5em;
+}
+th, td {
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+td.delete{
+    padding: 0;
+}
+input[value="del"]{
+    font-size: 16px;
+    width: 50%;
+    padding: 5px 5px;
+    background-color: #4f5f6f;
+    cursor: pointer;
+    color: #fff;
+}
+div form{
+    margin-top: 15px;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+
+    border: solid 1px #000;
+}
+form[name="user-add"] {
+    width: 300px;
+    height: 220px;
+    background-color: #f6f8fa;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px #eaecef solid;
+    border-radius: 5px;
+}
+
+form input {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+form input:last-of-type {
+    margin-bottom: 0;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    border: 1px #eaecef solid;
+    padding: 5px 10px;
+}
+
+form input[type="submit"] {
+    color: white;
+    background-color: #2ea44f;
+    cursor: pointer;
+}
