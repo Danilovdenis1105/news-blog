@@ -1,32 +1,18 @@
 <?php
 
 
-class Post
+class Post extends Database
 {
-    public $datebase;
-    public  function __construct()
-    {
-        $this->datebase = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    public function addPost($name, $description, $user_id){
+        $sql = "INSERT INTO news (name, description,user_id) values ('$name','$description','$user_id')";
+        $this->dbConnect->query($sql);
     }
-    public function getAllPosts(){
-        $sql = "SELECT*FROM news;";
-        $result = $this->datebase->query($sql);
-        if($result){
-            $posts=[];
-            while ($post = $result->fetch_assoc()){
-                $posts[]=$post;
-            }
-            return $posts;
-        }
-        return null;
-    }
-    public  function addPost($name, $textPost, $date, $user_id){
-        $sql= "INSERT INTO news (name, text, date, user_id) VALUES ('$name','$textPost',$date, $user_id)";
-        $this->datebase->query($sql);
-    }
-    public  function  delPost ($id){
-        $sql= "DELETE  FROM news WHERE news.id = $id";
-        $this->datebase->query($sql);
+    public function deletePost($id){
+        $sql = "DELETE FROM news WHERE `news`.`id` = $id limit 1;";
+        $this->dbConnect->query($sql);
     }
 
+    public function editPost($id, $name, $description){
+        $sql = "UPDATE `news` SET `name` = '$name', `description` = '$description' WHERE `news`.`id` = '$id';";
+    }
 }
