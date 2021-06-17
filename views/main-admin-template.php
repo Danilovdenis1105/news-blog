@@ -16,7 +16,7 @@
         <?php if ($_SESSION['login'] === 'yes'): ?>
             <div class="user-info">
                     <span class="user-name">
-                        <?php echo $this->user['login'] ?>
+                        <?php echo $_SESSION['user_login'] ?>
                     </span>
                 <form action="../admin.php" method="post">
                     <input type="hidden" value="true" name="logout">
@@ -28,15 +28,17 @@
 </header>
 
 <main>
-    <nav class="data-list">
-        <ul>
-            <li><a href="../admin.php"><?= NAV_HOME ?></a></li>
-            <li><a href="../pages/admin-all-users.php">All User</a></li>
-            <li><a href="../pages/admin-all-posts.php">All Post</a></li>
-            <li><a href="../pages/admin-edit-post.php">Add Post</a></li>
-            <li><a href="../pages/admin-addUser.php">Add User</a></li>
-        </ul>
-    </nav>
+    <?php if ($_SESSION['login'] === 'yes'):?>
+        <nav class="data-list">
+            <ul>
+                <li><a href="../admin.php"><?= NAV_HOME ?></a></li>
+                <li><a href="../admin.php?allUsers='show'">All Users</a></li>
+                <li><a href="../admin.php?allPosts='show'"">All Posts</a></li>
+                <li><a href="../pages/admin-edit-post.php">Add Post</a></li>
+                <li><a href="../admin.php?addUser='add'">Add User</a></li>
+            </ul>
+        </nav>
+    <? endif; ?>
     <div class="content">
         <div class="container">
             <section>

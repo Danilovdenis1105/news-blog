@@ -9,9 +9,23 @@ class User extends Database
         $user = $this->getUser($login);
         $isAutho = password_verify($password, $user['password']);
         if ($isAutho) {
-            return true;
+            return $user['id'];
         }
         return false;
+    }
+
+    public function getAllUsers()
+    {
+        $sql = "select login from users ;";
+        $result = $this->dbConnect->query($sql);
+        if ($result) {
+            $users = [];
+            while ($user = $result->fetch_assoc()) {
+                $users[] = $user;
+            }
+            return $users;
+        }
+        return null;
     }
 
     public function getUser($login)
