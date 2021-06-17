@@ -27,6 +27,11 @@ class Router
                 $view->render();
             }
 
+            if (isset($getParams['editPost'])) {
+                $view = new View('main-admin-template.php', 'admin-edit-post.php');
+                $view->render();
+            }
+
             if (isset($getParams['post_id'])) {
                 $post = $postObj->getPostbyId($getParams['post_id'], $_SESSION['user_id']);
                 if ($post) {
@@ -90,6 +95,10 @@ class Router
 
             if (isset($getPostParams['post_name']) && isset($getPostParams['post_description'])) {
                 $postObj->addPost($getPostParams['post_name'], $getPostParams['post_description'], $_SESSION['user_id']);
+            }
+
+            if(false){
+                //TODO отлавливать параметры на редактирование
             }
 
 
