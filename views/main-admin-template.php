@@ -33,6 +33,7 @@
                 <li><a href="../admin.php?allPosts='show'"">All Posts</a></li>
                 <li><a href="../pages/admin-edit-post.php">Add Post</a></li>
                 <li><a href="../admin.php?addUser='add'">Add User</a></li>
+                <li><a href="../admin.php?addPost='add'">Add Post</a></li>
             </ul>
         </nav>
     <? endif; ?>
