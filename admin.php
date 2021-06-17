@@ -10,5 +10,5 @@ spl_autoload_register(function($class) {
     }
     return false;
 });
-
+/*unset($_COOKIE['PHPSESSID']);*/
 Router::init();

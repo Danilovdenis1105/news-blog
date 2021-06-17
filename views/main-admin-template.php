@@ -1,6 +1,3 @@
-<?php
-include_once '../config_example.php'
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,37 +11,36 @@ include_once '../config_example.php'
 </head>
 <body>
 <header>
-    <img class = "logo" src="<?=H_LOGO?>" alt="<?=H_ALT?>">
+    <img class="logo" src="<?= H_LOGO ?>" alt="<?= H_ALT ?>">
     <div class="header__content">
-        <?php if (isAuthorized()): ?>
+        <?php if ($_SESSION['login'] === 'yes'): ?>
             <div class="user-info">
                     <span class="user-name">
-                        <?php echo $_SESSION["username"] ?>
+                        <?php echo $this->user['login'] ?>
                     </span>
                 <form action="../admin.php" method="post">
                     <input type="hidden" value="true" name="logout">
                     <button type="submit" class="exit">Exit</button>
                 </form>
             </div>
-        <?php endif; ?>
+        <? endif; ?>
     </div>
 </header>
 
 <main>
     <nav class="data-list">
-        <?php if (isAuthorized()): ?>
-            <ul>
-                <li><a href="../admin.php"><?=NAV_HOME?></a></li>
-                <li><a href="../pages/admin-all-users.php">All User</a></li>
-                <li><a href="../pages/admin-all-posts.php">All Post</a></li>
-                <li><a href="../pages/admin-edit-post.php">Add Post</a></li>
-            </ul>
-        <?php endif; ?>
+        <ul>
+            <li><a href="../admin.php"><?= NAV_HOME ?></a></li>
+            <li><a href="../pages/admin-all-users.php">All User</a></li>
+            <li><a href="../pages/admin-all-posts.php">All Post</a></li>
+            <li><a href="../pages/admin-edit-post.php">Add Post</a></li>
+            <li><a href="../pages/admin-addUser.php">Add User</a></li>
+        </ul>
     </nav>
     <div class="content">
         <div class="container">
             <section>
-                <?php include_once 'pages'.DIRECTORY_SEPARATOR.$this->page?>
+                <?php include_once 'pages' . DIRECTORY_SEPARATOR . $this->page ?>
             </section>
         </div>
     </div>
