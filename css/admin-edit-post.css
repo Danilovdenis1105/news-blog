@@ -1,0 +1,28 @@
+form{
+    margin-top: 15px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    width: 250px;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+form input:last-of-type {
+    margin-bottom: 0;
+}
+form input[type="text"],
+form input[type="post"],
+form textarea{
+    border: 1px #eaecef solid;
+    padding: 5px 10px;
+}
+form input[type="submit"] {
+    color: white;
+    background-color: #2ea44f;
+    cursor: pointer;
+    margin-top: 5px;
+}
