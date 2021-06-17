@@ -10,9 +10,15 @@ class Router
             $user = filter_input_array(INPUT_POST);
             $isAuth = $userObj->isAuthorized($user['login'], $user['password']);
             if ($isAuth) {
-                var_dump('Enter please!');
+                $view = new View('main-admin-template.php', 'main-admin.php');
+                $view->render();
             }
         }
 
+    }
+
+    static public function redirect()
+    {
+        header("Location: index.php");
     }
 }
