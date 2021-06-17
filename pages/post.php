@@ -1,6 +1,3 @@
- <?php
- include_once '../classes/Post.php';
- $post=[];?>
 <h2><?=$post['name_post']?></h2>
  <p><?=$post['post']?></p>
  <p class="signature"><?=$post['date']?></p>

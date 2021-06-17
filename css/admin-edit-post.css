@@ -15,7 +15,6 @@ form input:last-of-type {
     margin-bottom: 0;
 }
 form input[type="text"],
-form input[type="post"],
 form textarea{
     border: 1px #eaecef solid;
     padding: 5px 10px;
