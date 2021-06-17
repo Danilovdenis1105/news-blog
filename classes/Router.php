@@ -15,6 +15,20 @@ class Router
             if (isset($getParams['addUser'])) {
                 $view = new View('main-admin-template.php', 'admin-addUser.php');
                 $view->render();
+            } else if (isset($getParams['logout'])) {
+                $_SESSION['login'] = 'no';
+                //TODO добавить удаление сессии и сделать перезагрузку страницы
+            }
+
+            if (isset($getParams['post_id'])) {
+                var_dump($_SESSION);
+                $post = $postObj->getPostbyId($getParams['post_id'], $_SESSION['user_id']);
+                if ($post) {
+                    $postObj->deletePost($getParams['post_id']);
+                } else {
+                    var_dump("Вы не можете удалить данную запись");
+                }
+
             }
 
             if (isset($getParams['allPosts'])) {
@@ -29,6 +43,16 @@ class Router
                 $view = new View('main-admin-template.php', 'admin-all-users.php');
                 $view->users = $users;
                 $view->render();
+            }
+
+            if (isset($getParams['user_id'])) {
+                $userForDel = $getParams['user_id'];
+                if ($userForDel === $_SESSION['user_id']) {
+                    var_dump("Вы не можете удалить сами себя");
+                    //TODO вывод ошибки про невозможность удаления себя же
+                } else {
+                    $userObj->deleteUser($getParams['user_id']);
+                }
             }
 
             if ($_SESSION['login'] === 'yes') {
@@ -57,10 +81,10 @@ class Router
                     $view->user = $user;
                     $view->render();
                 }
-            } else if (isset($user['logout'])) {
-                $_SESSION['login'] = 'no';
-                self::redirect();
-            } else if (isset($user['login']) && isset($user['password']) && isset($user['confirm']) && count($user) === 3) {
+            }
+
+
+            else if (isset($user['login']) && isset($user['password']) && isset($user['confirm']) && count($user) === 3) {
                 $view = new View('main-admin-template.php', 'admin-addUser.php');
                 $view->render();
                 if ($user['password'] === $user['confirm']) {
@@ -79,8 +103,8 @@ class Router
 
     }
 
-    static public function redirect()
+    static public function redirect($path = 'admin.php')
     {
-        header("Location: admin.php");
+        header($path);
     }
 }

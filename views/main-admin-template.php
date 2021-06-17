@@ -18,17 +18,14 @@
                     <span class="user-name">
                         <?php echo $_SESSION['user_login'] ?>
                     </span>
-                <form action="../admin.php" method="post">
-                    <input type="hidden" value="true" name="logout">
-                    <button type="submit" class="exit">Exit</button>
-                </form>
+                <a href="../admin.php?logout='exit'">Exit</a>
             </div>
         <? endif; ?>
     </div>
 </header>
 
 <main>
-    <?php if ($_SESSION['login'] === 'yes'):?>
+    <?php if ($_SESSION['login'] === 'yes'): ?>
         <nav class="data-list">
             <ul>
                 <li><a href="../admin.php"><?= NAV_HOME ?></a></li>

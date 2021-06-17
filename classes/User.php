@@ -16,7 +16,7 @@ class User extends Database
 
     public function getAllUsers()
     {
-        $sql = "select login from users ;";
+        $sql = "SELECT users.id as user_id, users.login as login from users;";
         $result = $this->dbConnect->query($sql);
         if ($result) {
             $users = [];
@@ -48,6 +48,11 @@ class User extends Database
     public function deleteUser($id)
     {
         $sql = "DELETE FROM users WHERE `users`.`id` = $id limit 1;";
-        $this->dbConnect->query($sql);
+        var_dump($sql);
+        $result = $this->dbConnect->query($sql);
+        if($result){
+            return true;
+        }
+        return false;
     }
 }
