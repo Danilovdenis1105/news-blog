@@ -16,9 +16,8 @@ include_once '../config_example.php'
     <header>
         <img class = "logo" src="<?=H_LOGO?>" alt="<?=H_ALT?>">
     </header>
-    <nav><a href="../index.php"><?=NAV_HOME?></a></nav>
     <main>
-
+        <nav><a href="../index.php"><?=NAV_HOME?></a></nav>
         <div>
             <?php include_once 'pages'.DIRECTORY_SEPARATOR.$this->page?>
         </div>

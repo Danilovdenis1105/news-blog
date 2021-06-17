@@ -1,0 +1,21 @@
+h2, p{
+    padding: 10px 70px;
+    display: block;
+    min-width: 100%;
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    border: 1px solid #f0f3f6;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+p{
+    text-align: left;
+}
+.signature{
+    padding-right: 70px;
+    text-align: right;
+    font: 10pt/8pt sans-serif;
+}
