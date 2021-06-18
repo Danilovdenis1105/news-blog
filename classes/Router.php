@@ -8,6 +8,9 @@ class Router
         $userObj = new User();
         $postObj = new Post();
         session_start();
+
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
             $getParams = filter_input_array(INPUT_GET);
@@ -27,8 +30,10 @@ class Router
                 $view->render();
             }
 
-            if (isset($getParams['editPost'])) {
+            if (isset($getParams['editPostId'])) {
+                $postForEdit = $postObj->getPostForEdit($getParams['editPostId']);
                 $view = new View('main-admin-template.php', 'admin-edit-post.php');
+                $view->postForEdit = $postForEdit;
                 $view->render();
             }
 
@@ -97,8 +102,8 @@ class Router
                 $postObj->addPost($getPostParams['post_name'], $getPostParams['post_description'], $_SESSION['user_id']);
             }
 
-            if(false){
-                //TODO отлавливать параметры на редактирование
+            if(isset($getPostParams['edit'])){
+                $postObj->editPost($getPostParams['news_id'],$getPostParams['name'],$getPostParams['description']);
             }
 
 

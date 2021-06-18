@@ -18,6 +18,7 @@ class Post extends Database
     public function editPost($id, $name, $description)
     {
         $sql = "UPDATE `news` SET `name` = '$name', `description` = '$description' WHERE `news`.`id` = '$id';";
+        $this->dbConnect->query($sql);
     }
 
     public function getAllPosts()
@@ -36,6 +37,7 @@ class Post extends Database
 
     public function getPostbyId($post_id, $user_id)
     {
+
         $sql = "SELECT news.id as news_id, news.name as name, news.description as description, news.date_of_creating as date, news.user_id as user_id from news where news.id = '$post_id' and news.user_id = '$user_id'";
         $result = $this->dbConnect->query($sql);
         if ($result) {
@@ -44,5 +46,15 @@ class Post extends Database
         return null;
 
     }
+
+    public function getPostForEdit($post_id){
+        $sql = "SELECT news.id as news_id, news.name as name, news.description as description from news where news.id = '$post_id'";
+        $result = $this->dbConnect->query($sql);
+        if ($result) {
+            return $result->fetch_assoc();
+        }
+        return null;
+    }
+
 
 }

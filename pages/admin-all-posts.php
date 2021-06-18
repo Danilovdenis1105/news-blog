@@ -15,6 +15,7 @@
                 <td><?= $post['date'] ?></td>
                 <td><?= $post['author'] ?></td>
                 <td><a href="../admin.php?post_id=<?= $post['id'] ?>">Delete</a></td>
+                <td><a href="../admin.php?editPostId=<?= $post['id'] ?>">Edit Post</a></td>
             </tr>
         <?php endforeach; ?>
     <?php endif; ?>
